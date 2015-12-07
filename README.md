@@ -76,9 +76,12 @@ angular.module('todo', ['ionic']) //Initializing the app
 - add a simple Modal window that slides up, letting us put in a new task.
 - Place
 the following script tag after the closing </ion-side-menu> tag in the <body> of the HTML file:
+
+    <script id="new-task.html" type="text/ng-template">
+
 - define the template as an angular template:
 
-<script id="new-task.html" type="text/ng-template">
+
 <!-- set a header with a button to close the modal, and then set up our content area. For the form, we are calling createTask(task) when the form is submitted. The task that is passed to createTask is the object corresponding to the entered form data. Since our text input has ng-model="task.title", that text input will set the title property of the task object. -->
   <div class="modal">
 
@@ -108,7 +111,8 @@ the following script tag after the closing </ion-side-menu> tag in the <body> of
 
 </script>
 
-#### - In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:
+ - In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:
+<html>
 <!-- Center content -->
   <ion-side-menu-content>
     <ion-header-bar class="bar-dark">
@@ -127,14 +131,15 @@ the following script tag after the closing </ion-side-menu> tag in the <body> of
       </ion-list>
     </ion-content>
   </ion-side-menu-content>
-#### -  in our controller code:
+</html>
+-  in our controller code:
 angular.module('todo', ['ionic'])
 
 .controller('TodoCtrl', function($scope, $ionicModal) {
-  // No need for testing data anymore
+  <!-- // No need for testing data anymore -->
   $scope.tasks = [];
 
-  // Create and load the Modal
+  <!-- // Create and load the Modal -->
   $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
     $scope.taskModal = modal;
   }, {
@@ -142,7 +147,7 @@ angular.module('todo', ['ionic'])
     animation: 'slide-in-up'
   });
 
-  // Called when the form is submitted
+  <!-- // Called when the form is submitted -->
   $scope.createTask = function(task) {
     $scope.tasks.push({
       title: task.title
@@ -151,17 +156,17 @@ angular.module('todo', ['ionic'])
     task.title = "";
   };
 
-  // Open our new task modal
+  <!-- // Open our new task modal -->
   $scope.newTask = function() {
     $scope.taskModal.show();
   };
 
-  // Close the new task modal
+  <!-- // Close the new task modal -->
   $scope.closeNewTask = function() {
     $scope.taskModal.hide();
   };
 });
-#### - new content area markup:
+- new content area markup:
 <!-- Center content -->
 <ion-side-menu-content>
   <ion-header-bar class="bar-dark">
