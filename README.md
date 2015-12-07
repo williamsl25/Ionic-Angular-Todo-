@@ -53,14 +53,14 @@
   <body ng-app="todo">
 ### 8) Testing your app
 ####  in the browser:
-- ionic serve
+ionic serve
 ####  Simulator testing
-- ionic build ios
-- ionic emulate ios
+ionic build ios
+ionic emulate ios
 #### 9) add ng-repeat
-- add where list of items will go
+add where list of items will go
 #### 10) add Angular controller (TodoCtrl)
-- <body ng-app="todo" ng-controller="TodoCtrl">
+<body ng-app="todo" ng-controller="TodoCtrl">
 #### 11) define this controller in app.js
 angular.module('todo', ['ionic']) //Initializing the app
 
