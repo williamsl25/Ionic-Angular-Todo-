@@ -3,25 +3,32 @@
 npm install -g cordova
 ```
 ### 2) Install Ionic
-```npm install -g ionic
+```
+npm install -g ionic
 ```
 ### 3) Create the project
-```ionic start todo blank
 ```
-```cd todo && ls
+ionic start todo blank
+```
+```
+cd todo && ls
 ```
 ### 4) Configure Platforms
-```ionic platform add ios
 ```
-```ionic platform add android
+ionic platform add ios
+```
+```
+ionic platform add android
 ```
 ### 5) Test it
-``` ionic build ios
 ```
-``` ionic emulate ios
+ionic build ios
+```
+```
+ionic emulate ios
 ```
 ### 6) create index
-```
+
  <!DOCTYPE html>
     <html>
       <head>
@@ -59,17 +66,20 @@ npm install -g cordova
         </ion-side-menus>
       </body>
     </html>
-```
+
 ### 7) add the ng-app attribute to the body tag:
   <body ng-app="todo">
 ### 8) Testing your app
 ####  in the browser:
-```ionic serve
+```
+ionic serve
 ```
 ####  Simulator testing
-```ionic build ios
 ```
-```ionic emulate ios
+ionic build ios
+```
+```
+ionic emulate ios
 ```
 #### 9) add ng-repeat
 add where list of items will go
@@ -93,13 +103,15 @@ angular.module('todo', ['ionic']) //Initializing the app
 - Place
 the following script tag after the closing </ion-side-menu> tag in the <body> of the HTML file:
 
-``` <script id="new-task.html" type="text/ng-template">
+```
+ <script id="new-task.html" type="text/ng-template">
 ```
 - define the template as an angular template:
 
 
 <!-- set a header with a button to close the modal, and then set up our content area. For the form, we are calling createTask(task) when the form is submitted. The task that is passed to createTask is the object corresponding to the entered form data. Since our text input has ng-model="task.title", that text input will set the title property of the task object. -->
-```  <div class="modal">
+```
+  <div class="modal">
 
     <!-- Modal header bar -->
     <ion-header-bar class="bar-secondary">
@@ -129,6 +141,7 @@ the following script tag after the closing </ion-side-menu> tag in the <body> of
 
 In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:
 ```
+
   <ion-side-menu-content>
     <ion-header-bar class="bar-dark">
       <h1 class="title">Todo</h1>
@@ -149,6 +162,7 @@ In order to trigger the Modal to open, we need a button in the main header bar a
 ```
 in our controller code:
 ```
+
 angular.module('todo', ['ionic'])
 
 .controller('TodoCtrl', function($scope, $ionicModal) {
@@ -181,6 +195,7 @@ angular.module('todo', ['ionic'])
 ```
 new content area markup:
 ```
+
 <ion-side-menu-content>
   <ion-header-bar class="bar-dark">
     <button class="button button-icon" ng-click="toggleProjects()">
@@ -203,6 +218,7 @@ new content area markup:
 ```
 #### - new side menu markup:
 ```
+
  <ion-side-menu side="left">
    <ion-header-bar class="bar-dark">
      <h1 class="title">Projects</h1>
