@@ -52,9 +52,9 @@
 ### 7) add the ng-app attribute to the body tag:
   <body ng-app="todo">
 ### 8) Testing your app
-#### - in the browser:
+####  in the browser:
 - ionic serve
-#### - Simulator testing
+####  Simulator testing
 - ionic build ios
 - ionic emulate ios
 #### 9) add ng-repeat
