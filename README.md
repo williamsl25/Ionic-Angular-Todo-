@@ -1,17 +1,27 @@
 ### 1) install Cordova
-##### - npm install -g cordova
+```
+npm install -g cordova
+```
 ### 2) Install Ionic
-#### - npm install -g ionic
+```npm install -g ionic
+```
 ### 3) Create the project
-#### - ionic start todo blank
-#### - cd todo && ls
+```ionic start todo blank
+```
+```cd todo && ls
+```
 ### 4) Configure Platforms
-#### - ionic platform add ios
-#### - ionic platform add android
+```ionic platform add ios
+```
+```ionic platform add android
+```
 ### 5) Test it
-#### - ionic build ios
-#### - ionic emulate ios
+``` ionic build ios
+```
+``` ionic emulate ios
+```
 ### 6) create index
+```
  <!DOCTYPE html>
     <html>
       <head>
@@ -49,19 +59,24 @@
         </ion-side-menus>
       </body>
     </html>
+```
 ### 7) add the ng-app attribute to the body tag:
   <body ng-app="todo">
 ### 8) Testing your app
 ####  in the browser:
-ionic serve
+```ionic serve
+```
 ####  Simulator testing
-ionic build ios
-ionic emulate ios
+```ionic build ios
+```
+```ionic emulate ios
+```
 #### 9) add ng-repeat
 add where list of items will go
 #### 10) add Angular controller (TodoCtrl)
 <body ng-app="todo" ng-controller="TodoCtrl">
 #### 11) define this controller in app.js
+```
 angular.module('todo', ['ionic']) //Initializing the app
 
 .controller('TodoCtrl', function($scope) {
@@ -72,18 +87,19 @@ angular.module('todo', ['ionic']) //Initializing the app
     { title: 'Find the Princess' }
   ];
 });
+```
 #### 12) Creating tasks
 - add a simple Modal window that slides up, letting us put in a new task.
 - Place
 the following script tag after the closing </ion-side-menu> tag in the <body> of the HTML file:
 
-- <script id="new-task.html" type="text/ng-template">
-
+``` <script id="new-task.html" type="text/ng-template">
+```
 - define the template as an angular template:
 
 
 <!-- set a header with a button to close the modal, and then set up our content area. For the form, we are calling createTask(task) when the form is submitted. The task that is passed to createTask is the object corresponding to the entered form data. Since our text input has ng-model="task.title", that text input will set the title property of the task object. -->
--  <div class="modal">
+```  <div class="modal">
 
     <!-- Modal header bar -->
     <ion-header-bar class="bar-secondary">
@@ -109,11 +125,10 @@ the following script tag after the closing </ion-side-menu> tag in the <body> of
 
   </div>
 
-</script>
+```
 
- - In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:
-<html>
-
+In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:
+```
   <ion-side-menu-content>
     <ion-header-bar class="bar-dark">
       <h1 class="title">Todo</h1>
@@ -131,8 +146,9 @@ the following script tag after the closing </ion-side-menu> tag in the <body> of
       </ion-list>
     </ion-content>
   </ion-side-menu-content>
-</html>
--  in our controller code:
+```
+in our controller code:
+```
 angular.module('todo', ['ionic'])
 
 .controller('TodoCtrl', function($scope, $ionicModal) {
@@ -162,8 +178,9 @@ angular.module('todo', ['ionic'])
     $scope.taskModal.hide();
   };
 });
-- new content area markup:
-
+```
+new content area markup:
+```
 <ion-side-menu-content>
   <ion-header-bar class="bar-dark">
     <button class="button button-icon" ng-click="toggleProjects()">
@@ -183,8 +200,9 @@ angular.module('todo', ['ionic'])
     </ion-list>
   </ion-content>
 </ion-side-menu-content>
+```
 #### - new side menu markup:
-
+```
  <ion-side-menu side="left">
    <ion-header-bar class="bar-dark">
      <h1 class="title">Projects</h1>
@@ -199,10 +217,12 @@ angular.module('todo', ['ionic'])
      </ion-list>
    </ion-content>
  </ion-side-menu>
+ ```
 
  This adds a side menu of projects, letting us click on each project and also add a new one with a small plus icon button in the header bar. The ng-class directive in the <ion-item> makes sure to add the active class to the currently active project.
 
 #### -To enable adding, saving, and loading projects in app.js:
+```
 angular.module('todo', ['ionic'])
 
 .factory('Projects', function() {
@@ -232,9 +252,9 @@ angular.module('todo', ['ionic'])
     }
   }
 })
-
+```
+```
 .controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
-
 
   var createProject = function(projectTitle) {
     var newProject = Projects.newProject(projectTitle);
@@ -243,10 +263,7 @@ angular.module('todo', ['ionic'])
     $scope.selectProject(newProject, $scope.projects.length-1);
   }
 
-
-
   $scope.projects = Projects.all();
-
 
   $scope.activeProject = $scope.projects[Projects.getLastActiveIndex()];
 
@@ -315,3 +332,4 @@ angular.module('todo', ['ionic'])
   });
 
 });
+```
